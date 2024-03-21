@@ -60,7 +60,7 @@ We will be using the opengl template for this tutorial but there are several oth
 
 Where -o is the project directory it will create.
 
-# Project has beed made
+# Project has been made
 Now that you successfully created your project with either VS 2022 Tempplates or via dotnet we will check out the code.
 
 Firstly the files it created: Most of these we can ignore for now
