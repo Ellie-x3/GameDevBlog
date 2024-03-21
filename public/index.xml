@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ellies Blog</title>
+    <link>/</link>
+    <description>Recent content on Ellies Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 21 Mar 2024 18:56:19 -0300</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pixel Platformer Part 1</title>
+      <link>/posts/first/</link>
+      <pubDate>Thu, 21 Mar 2024 18:56:19 -0300</pubDate>
+      <guid>/posts/first/</guid>
+      <description>MonoGame Setup Time to do some Game Dev!
+First we will need to go through the installation steps for MonoGame Steps: Here
+This Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.
+First we will install Visual Studio - This will help speed up the install process</description>
+    </item>
+  </channel>
+</rss>

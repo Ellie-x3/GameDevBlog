@@ -1,0 +1,24 @@
+baseURL: ""
+title: Ellies Blog
+languagseCode: en-us
+paginate: 5
+theme: [PaperMod]
+
+params:
+  homeInfoParams:
+    Title: "Ellies GameDev"
+    Content: >
+      👋 Welcome to my page!
+
+      - Here we will do some game dev in MonoGame and other C# FrameWorks!
+  ShowBreadCrumbs: true
+  ShowReadingTime: true
+
+menu:
+  main:
+    - name: Categories
+      url: /categories/
+      weight: 20
+    - name: Tags
+      url: /tags/
+      weight: 20
