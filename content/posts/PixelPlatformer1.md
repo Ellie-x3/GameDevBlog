@@ -2,7 +2,7 @@
 title = 'Pixel Platformer Part 1'
 date = 2024-03-21T18:56:19-03:00
 draft = false
-tags = ["MonoGame"]
+tags = ["MonoGame", "PixelPlatformer"]
 +++
 
 # MonoGame Setup
@@ -196,7 +196,6 @@ If everything worked correctly you should now see a window pop-up with a nice *C
 Thats it for this part in the next part we will cover:
 
 1. Going breifly over the main methods in Game1.cs
-2. Creating a Globals.cs class to handle certain data that will be shared globally accross our game
-3. Loading our first image using Content.mgcb
+2. Loading our first image using Content.mgcb
 
 Please join the MonoGame Discord if you have any questions. Please feel free to ping me (Ellie.x3) in my Forum post for this blog. [Discord](https://discord.gg/monogame)
