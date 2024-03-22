@@ -45,7 +45,7 @@ As for Visual Studio Code users / JetBrains Rider / Any other editor we will ope
 
 In your project directory run the following command: 
 
-`dotnet tool restore` and then run 
+`dotnet tool restore` (Should only have to run this one time) and then run 
 
 `dotnet mgcb-editor ./Content/Content.mgcb`
 
