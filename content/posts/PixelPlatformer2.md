@@ -50,7 +50,7 @@ In your project directory run the following command:
 `dotnet mgcb-editor ./Content/Content.mgcb`
 
 This should *hopefully* open the MGCB Editor. If you are having any issues refer to the official documentation [Here](https://monogame.net/articles/tools/mgcb_editor.html).
-You can also ak in the #help channel of the official Discord and I'm sure someone will be able to assist
+You can also ask in the #help channel of the official Discord and I'm sure someone will be able to assist
 
 # MGCB Editor
 
@@ -83,15 +83,14 @@ There is 4 methods here and our games constructor. The methods come from the inh
 
 2. **Initialize**
     * Initialize gets called once at the start of our game. 
-    * I use this to specify MonoGame related settings after my Games initialization
+    * I use this to specify MonoGame related settings and then my Games initialization
 
 3. **LoadContent**
-    * LoadContent is a little self explainator, This is where we will load our content.
+    * LoadContent is a little self-explanitory, This is where we will load our content.
     * Called after Initialize
 
 4. **Update**
     * Update is our main game loop and where majority of our code will live
-    * We will set our FPS to 60FPS.
 
 5. **Draw**
     * Draw is where our code for drawing our game to the screen will live.
@@ -130,9 +129,9 @@ protected override void LoadContent()
 }
 ```
 
-We need to use the ContentManager to load our asset from what we just built in MGCB Editor. To do this we need to call `Content.Load<>()`
+We need to use the ContentManager to load our asset from what we just built in MGCB Editor. To do this we need to call `Content.Load<>()` (Content is defined in the Game class)
 with the type Texture2D since that is what we are loading and pass in the path to the Texture. This path is a *relative* path from our MGCB Content.
-If you recall in MGCB Editor We had Content/ and then we added Assets/Characters.png to it. the path is relative to Content/ as the root. 
+If you recall in MGCB Editor We had `Content/` and then we added `Assets/Characters.png` to it. the path is relative to `Content/` as the root. 
 So we pass in `Asset/Characters` **without** the file extension - MonoGames MGCB built a XNB & mgcontent file from our png and it will use our path to find it. You can
 see these in our files: `Content/bin/DesktopGL/Assets/Characters.xnb` & `Content/obj/DesktopGL/Assets/Characters.mgcontent`.
 
@@ -157,9 +156,9 @@ protected override void Draw(GameTime gameTime)
 _spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
 ```
 
-Here we need to specify the start of our draw calls with `Being();` while also passing some extra parameters
+Here we need to specify the start of our draw calls with `Being();` while also passing some extra optional parameters
 `SpriteSortMode.BackToFront` will allow us to specify a depth with a float from 0.0 - 1.0 for what order to draw the sprite.
-`samplerState: SamplerState.PointClamp` optional parameter is used to ensure we keep sharp pixels for our low res image.
+`samplerState: SamplerState.PointClamp` parameter is used to ensure we keep sharp pixels for our low res image.
 
 
 ```cs
@@ -170,7 +169,7 @@ _spriteBatch.End();
 The `Draw()` method has quite a few overloads. For now we simply just want to draw it to the screen, So we are using the overload for Texture/Position/Color
 
 We specify our texture variable we made, a Vector2 for the position `new Vector2(200, 200)` and the Color. We will only be using Color.White in here. It ensures
-to always draw the complete image.
+to always draw the complete image as it was drawn.
 
 And then we simply call `End()` to specify we are done with this batch. But again - for now all our drawing logic will be inbetween the same 
 `Begin` and `End` calls.
@@ -179,7 +178,7 @@ If you run the game now we should now see our texture on the screen!
 
 ![Window Image](/imgs/pixelplatformer/window.png)
 
-Woohoo! An image!~ We made a game!... wait a second, this doesnt seem right? we see all the characters! AND ITS SO SMALL?
+Woohoo! An image!~ We made a game!... wait a second, this doesnt seem right? we see all the characters! **AND ITS SO SMALL?**
 
 So in the next post we will solve this! we will 
 
