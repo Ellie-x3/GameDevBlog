@@ -13,7 +13,8 @@
       <link>http://localhost:1313/posts/pixelplatformer3/</link>
       <pubDate>Mon, 08 Apr 2024 19:30:50 -0300</pubDate>
       <guid>http://localhost:1313/posts/pixelplatformer3/</guid>
-      <description>Character selection &amp;amp; Input! </description>
+      <description>Character selection &amp;amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.
+I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.</description>
     </item>
     <item>
       <title>Pixel Platformer Part 1</title>
