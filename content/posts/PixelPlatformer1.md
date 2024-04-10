@@ -9,7 +9,7 @@ tags = ["MonoGame", "PixelPlatformer"]
 
 Time to do some Game Dev!
 
-First we will need to go through the installation steps for [**MonoGame**](https://monogame.net/) Steps: [Here](https://monogame.net/articles/getting_started/index.html)
+First we will need to go through the installation steps for [**MonoGame**](https://monogame.net/) Steps: [Here](https://docs.monogame.net/articles/getting_started)
 
 This Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms.
 I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.
