@@ -16,9 +16,6 @@ params:
 
 menu:
   main:
-    - name: Categories
-      url: /categories/
-      weight: 20
     - name: Tags
       url: /tags/
       weight: 20

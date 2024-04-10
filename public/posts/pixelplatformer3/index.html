@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Pixel Platformer Part 3 | Ellies Blog</title>
+<meta name="keywords" content="MonoGame, PixelPlatformer">
+<meta name="description" content="Character selection &amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.
+I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/pixelplatformer3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5b90f603e721c9591f92e42d19ae1c3113a2929e7366bea5977d446c153b4186.css" integrity="sha256-W5D2A&#43;chyVkfkuQtGa4cMROikp5zZr6ll31EbBU7QYY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/pixelplatformer3/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Pixel Platformer Part 3
+    </h1>
+    <div class="post-meta"><span title='2024-04-08 19:30:50 -0300 ADT'>April 8, 2024</span>&nbsp;·&nbsp;11 min
+
+</div>
+  </header> 
+  <div class="post-content"><h1 id="character-selection--input">Character selection &amp; Input!<a hidden class="anchor" aria-hidden="true" href="#character-selection--input">#</a></h1>
+<p>For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.</p>
+<p>I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.</p>
+<h1 id="character-selection">Character selection<a hidden class="anchor" aria-hidden="true" href="#character-selection">#</a></h1>
+<p>So we need to select the character we want to use out of the atlas we previously rendered to the screen.</p>
+<p>To do this we will use a different override for the <code>Draw()</code> Method. Specifically we will use the <code>Draw(Texture2D texture, Vector2 position, Rectangle rectangle, Color color)</code></p>
+<p>Rectangle? Whats that?</p>
+<p>The Rectangle parameter we will use is specifically defined as the source rectangle. There is another rectanlge called the destination rectangle but we will not worry about that now. So the source rectangle will define a rectangle on our Texture2D atlas and render just what is inside that source rectangle.</p>
+<p>So we will define a rectangle that takes in 4 parameters. The position x &amp; y on our Texture2D and the width and height we want to render.</p>
+<p>Reference the image below - our atlas is evenly divided into 24x24 for each sprite as shown with the grid</p>
+<p><img loading="lazy" src="/imgs/PixelPlatformer/grid.png" alt="Grids"  />
+</p>
+<p>So lets say we want the red character for example. We need to find the X &amp; Y value of the top left corner of that characters square on the grid.</p>
+<p><img loading="lazy" src="/imgs/PixelPlatformer/griddot.png" alt="Grid dot"  />
+</p>
+<p>This is the top left of the red characters square. So we can just use our art app to see what the X and Y value is: <code>96, 0</code> If you dont want to open an art app to see the exact value, since we know everything is spaced 24x24 we can just do some simple math: 24*4 &amp; 24*0 to get 96 &amp; 0</p>
+<p><img loading="lazy" src="/imgs/PixelPlatformer/gridmath.png" alt="Grid math"  />
+</p>
+<p>Now that we have the X &amp; Y <code>96, 0</code> we just need the width and height. Which we already know is 24x24. Perfect!</p>
+<p>Then you would just fill in the parameters of the Rectangle with these values.</p>
+<p>But for this tutorial we will use the green character in the first 2 positions. so we will start with these values for our Rectangle: X &amp; Y: 0, 0 and Width &amp; Height: 24, 24.</p>
+<hr>
+<p>Okay lets create our variables:</p>
+<p>underneath our <code>_characterAtlas</code> variable we will create the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Texture2D _characterAtlas; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#region</span> player
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Rectangle _characterRect = <span style="color:#66d9ef">new</span> Rectangle(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">24</span>); //
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Vector2 _playerPosition = <span style="color:#66d9ef">new</span> Vector2(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">200</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endregion</span>
+</span></span></code></pre></div><p>The region is just for cleaniness - we will be moving everything to a Player class in an upcoming part.</p>
+<p>Now to just render this we will update our <code>Draw()</code> call to the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    _spriteBatch.Draw(_characterAtlas, _playerPosition, _characterRect, Color.White);
+</span></span></code></pre></div><p>You should now only see the character instead of the whole atlas! But it is still very very small. so we will quickly fix this now.</p>
+<h1 id="sizing-up-the-character">Sizing up the character<a hidden class="anchor" aria-hidden="true" href="#sizing-up-the-character">#</a></h1>
+<p>For now for simplicity sake we will quickly adjust the players size. But this will soon be changed in an upcoming part so that everything will be sized up by default.</p>
+<p>To do this is quite simple. We will just use the Scale parameter in the <code>Draw()</code> call. Though there are a couple other arguments aswell.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    _spriteBatch.Draw(_characterAtlas, _playerPosition, _characterRect, Color.White, <span style="color:#ae81ff">0f</span>, Vector2.Zero, <span style="color:#ae81ff">2.5f</span>, SpriteEffects.None, <span style="color:#ae81ff">0f</span>);
+</span></span></code></pre></div><p>Updating our draw call to this line here will make the player 2.5 times bigger. the parameters of this override are as follows:</p>
+<p><code>Draw(Texture2D texture, Vector2 position, Rectangle sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects spriteEffects, float layerDepth)</code></p>
+<p>We will set the roation to 0f, origin to Vector2.Zero, Scale to 2.5f, SpriteEffects to SpriteEffects.None, and layerDepth to 0f. Most of these are self explanitory but we will go over them when we use them.</p>
+<p>You should now see the character and he&rsquo;s bigger now! WooHoo! Now lets make him move!</p>
+<h1 id="moving-the-character">Moving the character<a hidden class="anchor" aria-hidden="true" href="#moving-the-character">#</a></h1>
+<p>To begin moving the character we need to poll for input from our game. To do so we will create a seperate <code>Input</code> class.</p>
+<p>Create the following folder and file structure:</p>
+<pre tabindex="0"><code>└── 📁Src
+    └── 📁Util
+        └── Input.cs
+</code></pre><p>Lets create our class! start with the basic outline of the class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Xna.Framework;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Xna.Framework.Input;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> PixelPlatformer.Util;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Input</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We will create this class in the namespace <code>namespace PixelPlatformer.Util</code></p>
+<p>The variables we need for this class are the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Input</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> KeyboardState _currentKeyboard;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> KeyboardState _previousKeyboard;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span>[] _keyCodes;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span>[] _keyPress;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span>[] _keyDown;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We will need to capture the current frames state and the previous frame state of our keyboard to determine if a key is held vs pressed.</p>
+<p>We will create 3 Arrays to hold the data of all our key codes as ints - a bool array for pressed keys and a bool array of held down keys.</p>
+<p>We will also need the following functions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Input</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> KeyboardState _currentKeyboard;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> KeyboardState _previousKeyboard;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span>[] _keyCodes;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span>[] _keyPress;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span>[] _keyDown;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Initialize(){
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Update(GameTime gameTime){
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsKeyPressed(Keys key){
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsKeyDown(Keys key){
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>These 4 functions are all we need to get basic keyboard input from across our game.</p>
+<ul>
+<li><code>Initialize</code> will initialize our arrays</li>
+<li><code>Update</code> will check our keyboard every frame and update its state</li>
+<li><code>IsKeyPressed</code> will return true or false if a key is just pressed</li>
+<li><code>IsKeyDown</code> will return true or false if a key is held down</li>
+</ul>
+<p>Lets start with initialize</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Initialize(){
+</span></span><span style="display:flex;"><span>        _keyCodes = Enum.GetValues(<span style="color:#66d9ef">typeof</span>(Keys)).Cast&lt;<span style="color:#66d9ef">int</span>&gt;().ToArray();
+</span></span><span style="display:flex;"><span>        _keyPress = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span>[_keyCodes.Length];
+</span></span><span style="display:flex;"><span>        _keyDown = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span>[_keyCodes.Length];
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>We will initialize our arrays.</p>
+<ul>
+<li><code>_keyCodes = Enum.GetValues(typeof(Keys)).Cast&lt;int&gt;().ToArray();</code> this will convert MonoGames enum <code>Keys</code> to their respective integer values of the enum</li>
+<li><code>_keyPress = new bool[_keyCodes.Length];</code> we will initialize <code>_keyPress</code> with the size of how many keys codes we have</li>
+<li><code>_keyDown = new bool[_keyCodes.Length];</code> we will initialize <code>_keyDown</code> with the size of how many keys codes we have</li>
+</ul>
+<p>Update</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Update(GameTime gameTime){
+</span></span><span style="display:flex;"><span>        _currentKeyboard = Keyboard.GetState();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; _keyCodes.Length; i++){
+</span></span><span style="display:flex;"><span>            Keys key = (Keys)_keyCodes[i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(_currentKeyboard.IsKeyDown(key) &amp;&amp; !_previousKeyboard.IsKeyDown(key)){
+</span></span><span style="display:flex;"><span>                _keyPress[i] = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                _keyPress[i] = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(_currentKeyboard.IsKeyDown(key) &amp;&amp; _previousKeyboard.IsKeyDown(key)){
+</span></span><span style="display:flex;"><span>                _keyDown[i] = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                _keyDown[i] = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        _previousKeyboard = Keyboard.GetState();
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>Slightly more complex. We will first capture the keyboards state this frame <code>_currentKeyboard = Keyboard.GetState();</code></p>
+<p>We will then loop with the <code>for()</code> loop to check all our keys.</p>
+<p>We will now cast the key to the enum value <code>Keys key = (Keys)_keyCodes[i];</code> so if <code>i = 0</code> it will set <code>key = the first enum value</code> note that the enum is a list of all keyboard keys which is provided by MonoGame in the <code>using Microsoft.Xna.Framework.Input;</code></p>
+<p><code>if(_currentKeyboard.IsKeyDown(key) &amp;&amp; !_previousKeyboard.IsKeyDown(key))</code> this if statement will check the current keyabord if <code>KeyIsDown</code> and it will check the previous keyboard if the key was <strong>NOT</strong> down.</p>
+<p>Example: frame 100 of our game running we are not pressing <code>A</code> on the keyboard and then on frame 101 we press <code>A</code> then this if statement will return true.</p>
+<p>We then set the key in our <code>_keyPress[]</code> to true using <code>i</code> since i corresponds to the position of the key in our array</p>
+<p>Example: _keyPress is filled with our keycodes enum. Lets say our enum has 4 keys <code>W, A, S, D</code> in initialize we are setting _keyPress[] to the size of our enum <code>_keyPress = new bool[_keyCodes.Length];</code> so since its a bool array our array looks like this <code>[0, 0, 0, 0]</code> with each position representing the enum. so position 0 = W, 1 = A, etc&hellip; Looping through the key codes - for this example the enum is <code>W, A, S, D</code> it will loop through them in that order. it will check <code>IsKeyDown(W)</code> and so on throughout our for loop. So lets say we press <code>A</code> it will check <code>IsKeyDown(W)</code> which is false. Next iteration it will check <code>IsKeyDown(A)</code> true! so we set <code>_keyPress[i] = true</code> so our array now looks like [0, 1, 0, 0].</p>
+<p>This was a simple example as MonoGame covers all keys there are a lot more keys defined within monogame - but this is the basic idea of what we are implementing.</p>
+<p>We will then just check if current state is Down and the previous state is also Down we will the set our <code>_keyDown[]</code> array to true or false
+<code>if(_currentKeyboard.IsKeyDown(key) &amp;&amp; _previousKeyboard.IsKeyDown(key))</code></p>
+<p>Dont forget to set to false if these conditions do not match the expressions.</p>
+<p>And to end the update frame we will set prev keyboard to this frames state so the next frame can use the data for its if checks
+<code>_previousKeyboard = Keyboard.GetState();</code></p>
+<p>This is simplier then it looks but trust me it will make using input a lot easier for us!</p>
+<p>The next two functions are just to check if the key is pressed or held down</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsKeyPressed(Keys key){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i = Array.FindIndex(_keyCodes, x =&gt; x == (<span style="color:#66d9ef">int</span>)key);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _keyPress[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsKeyDown(Keys key){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i = Array.FindIndex(_keyCodes, x =&gt; x == (<span style="color:#66d9ef">int</span>)key);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _keyDown[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>This is pretty self explanitory - we are just checking if the key we specify is true or false in our 2 bool arrays we made for pressed &amp; down.</p>
+<p>Full class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Xna.Framework;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.Xna.Framework.Input;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> PixelPlatformer.Util;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Input</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> KeyboardState _currentKeyboard;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> KeyboardState _previousKeyboard;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span>[] _keyCodes;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span>[] _keyPress;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span>[] _keyDown;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Initialize(){
+</span></span><span style="display:flex;"><span>        _keyCodes = Enum.GetValues(<span style="color:#66d9ef">typeof</span>(Keys)).Cast&lt;<span style="color:#66d9ef">int</span>&gt;().ToArray();
+</span></span><span style="display:flex;"><span>        _keyPress = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span>[_keyCodes.Length];
+</span></span><span style="display:flex;"><span>        _keyDown = <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">bool</span>[_keyCodes.Length];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Update(GameTime gameTime){
+</span></span><span style="display:flex;"><span>        _currentKeyboard = Keyboard.GetState();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i = <span style="color:#ae81ff">0</span>; i &lt; _keyCodes.Length; i++){
+</span></span><span style="display:flex;"><span>            Keys key = (Keys)_keyCodes[i];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(_currentKeyboard.IsKeyDown(key) &amp;&amp; !_previousKeyboard.IsKeyDown(key)){
+</span></span><span style="display:flex;"><span>                _keyPress[i] = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                _keyPress[i] = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(_currentKeyboard.IsKeyDown(key) &amp;&amp; _previousKeyboard.IsKeyDown(key)){
+</span></span><span style="display:flex;"><span>                _keyDown[i] = <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                _keyDown[i] = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        _previousKeyboard = Keyboard.GetState();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsKeyPressed(Keys key){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i = Array.FindIndex(_keyCodes, x =&gt; x == (<span style="color:#66d9ef">int</span>)key);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _keyPress[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> IsKeyDown(Keys key){
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> i = Array.FindIndex(_keyCodes, x =&gt; x == (<span style="color:#66d9ef">int</span>)key);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> _keyDown[i];
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Great! now lets use this class in our main Game class.</p>
+<h2 id="dont-miss-this-step"><strong>DON&rsquo;T MISS THIS STEP</strong><a hidden class="anchor" aria-hidden="true" href="#dont-miss-this-step">#</a></h2>
+<p>Don&rsquo;t forget to call our <code>Initialize()</code> and <code>Update()</code> in our main games Initialize and Update functions</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Initialize()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _graphics.PreferredBackBufferWidth = <span style="color:#ae81ff">1280</span>;
+</span></span><span style="display:flex;"><span>        _graphics.PreferredBackBufferHeight = <span style="color:#ae81ff">720</span>;
+</span></span><span style="display:flex;"><span>        _graphics.ApplyChanges();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Window.AllowUserResizing = <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Input.Initialize();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">base</span>.Initialize();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">void</span> Update(GameTime gameTime)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+</span></span><span style="display:flex;"><span>            Exit();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// TODO: Add your update logic here</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Input.Update(gameTime);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">base</span>.Update(gameTime);
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h1 id="using-our-new-input-class">Using our new Input class<a hidden class="anchor" aria-hidden="true" href="#using-our-new-input-class">#</a></h1>
+<p>Lets move the character with our Input class now!</p>
+<p>First we will add a couple variables for our players magnitude &amp; speed:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#75715e">#region</span> player
+</span></span><span style="display:flex;"><span>   
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Rectangle _characterRect = <span style="color:#66d9ef">new</span> Rectangle(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">24</span>,<span style="color:#ae81ff">24</span>); //
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Vector2 _playerPosition = <span style="color:#66d9ef">new</span> Vector2(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">200</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Vector2 _playerMagnitude = Vector2.Zero;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> _playerSpeed = <span style="color:#ae81ff">6.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endregion</span>
+</span></span></code></pre></div><p>in our update function we will do the following: <strong>Make sure to do it AFTER calling Update()</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>        Input.Update(gameTime);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        _playerMagnitude = Vector2.Zero;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(Input.IsKeyDown(Keys.A)){
+</span></span><span style="display:flex;"><span>            _playerMagnitude.X = -<span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        } 
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.IsKeyDown(Keys.D)) {
+</span></span><span style="display:flex;"><span>            _playerMagnitude.X = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        _playerPosition.X += _playerMagnitude.X * _playerSpeed;
+</span></span></code></pre></div><ul>
+<li><code>_playerMagnitude = Vector2.Zero;</code> set magnitude to Vector2.Zero at the beginning of a frame</li>
+<li>If statements to check our keys to see if they are pressed down. and setting the X magnitude to -1 for left and 1 for right</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(Input.IsKeyDown(Keys.A)){
+</span></span><span style="display:flex;"><span>        _playerMagnitude.X = -<span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    } 
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (Input.IsKeyDown(Keys.D)) {
+</span></span><span style="display:flex;"><span>        _playerMagnitude.X = <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><ul>
+<li><code>_playerPosition.X += _playerMagnitude.X * _playerSpeed;</code> we will then set our positions X by adding the previous X value + the magnitude * by the speed. So if magnitude is -1 when holding left we will move the player <code>-1 * 6.0f = -6.0f</code> so we take the previous X <code>200</code> and add <code>-6.0</code> so we will move to <code>194</code> and positive value for right.</li>
+</ul>
+<p>Running the game now we should now be able to move left and right with our player pressing A &amp; D!</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>If you made it to here CONGRATS! this was a lengthy Part but we made lots of progress! we can now move the player! woohoo!</p>
+<p>The next part we will be preparing to adding more movement to our player for falling down with gravity and also flipping the character depending on the direction we press!</p>
+<h1 id="common-errors">Common errors<a hidden class="anchor" aria-hidden="true" href="#common-errors">#</a></h1>
+<p>If your character is not moving when pressing the keys make sure you are calling initialize and update functions.
+I highly suggest looking through this part a second time to make sure you didnt miss any small details</p>
+<p>If you still have any trouble please post in my Forum post on the MonoGame discord in <code>#Forums</code> channel named <code>Ellies Dev Tutorial Blog</code> or send me a private message with the error you are having! Discord Tag: ellie.x3</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/monogame/">MonoGame</a></li>
+      <li><a href="http://localhost:1313/tags/pixelplatformer/">PixelPlatformer</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2024 <a href="http://localhost:1313/">Ellies Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

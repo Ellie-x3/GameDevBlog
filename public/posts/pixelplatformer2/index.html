@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <title>Pixel Platformer Part 2 | Ellies Blog</title>
 <meta name="keywords" content="MonoGame, PixelPlatformer">
 <meta name="description" content="Textures! Let&rsquo;s Use Some To see anything on our beautiful new window we will need ourselves some textures/assets. While you can opt to use your own art for the sake of this tutorial I will be using Kenneys Assets. If you also use his assets please make sure to give him your support as all his assets are free! Kenneys Assets I am using
 This is also the first look at what we will be trying to create!">
 <meta name="author" content="">
-<link rel="canonical" href="http://elliemakesgames.xyz/posts/pixelplatformer2/">
+<link rel="canonical" href="http://localhost:1313/posts/pixelplatformer2/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5b90f603e721c9591f92e42d19ae1c3113a2929e7366bea5977d446c153b4186.css" integrity="sha256-W5D2A&#43;chyVkfkuQtGa4cMROikp5zZr6ll31EbBU7QYY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://elliemakesgames.xyz/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://elliemakesgames.xyz/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://elliemakesgames.xyz/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://elliemakesgames.xyz/apple-touch-icon.png">
-<link rel="mask-icon" href="http://elliemakesgames.xyz/safari-pinned-tab.svg">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://elliemakesgames.xyz/posts/pixelplatformer2/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/pixelplatformer2/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,69 +56,7 @@ This is also the first look at what we will be trying to create!">
         }
 
     </style>
-</noscript><meta property="og:title" content="Pixel Platformer Part 2" />
-<meta property="og:description" content="Textures! Let&rsquo;s Use Some To see anything on our beautiful new window we will need ourselves some textures/assets. While you can opt to use your own art for the sake of this tutorial I will be using Kenneys Assets. If you also use his assets please make sure to give him your support as all his assets are free! Kenneys Assets I am using
-This is also the first look at what we will be trying to create!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://elliemakesgames.xyz/posts/pixelplatformer2/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2024-03-21T18:56:19-03:00" />
-<meta property="article:modified_time" content="2024-03-21T18:56:19-03:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pixel Platformer Part 2"/>
-<meta name="twitter:description" content="Textures! Let&rsquo;s Use Some To see anything on our beautiful new window we will need ourselves some textures/assets. While you can opt to use your own art for the sake of this tutorial I will be using Kenneys Assets. If you also use his assets please make sure to give him your support as all his assets are free! Kenneys Assets I am using
-This is also the first look at what we will be trying to create!"/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "http://elliemakesgames.xyz/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Pixel Platformer Part 2",
-      "item": "http://elliemakesgames.xyz/posts/pixelplatformer2/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Pixel Platformer Part 2",
-  "name": "Pixel Platformer Part 2",
-  "description": "Textures! Let\u0026rsquo;s Use Some To see anything on our beautiful new window we will need ourselves some textures/assets. While you can opt to use your own art for the sake of this tutorial I will be using Kenneys Assets. If you also use his assets please make sure to give him your support as all his assets are free! Kenneys Assets I am using\nThis is also the first look at what we will be trying to create!",
-  "keywords": [
-    "MonoGame", "PixelPlatformer"
-  ],
-  "articleBody": "Textures! Let’s Use Some To see anything on our beautiful new window we will need ourselves some textures/assets. While you can opt to use your own art for the sake of this tutorial I will be using Kenneys Assets. If you also use his assets please make sure to give him your support as all his assets are free! Kenneys Assets I am using\nThis is also the first look at what we will be trying to create!\nOnce you download / have your assets we will need to create our assets folder. For sake of cleanliness we will put it in our handy Content folder MonoGame created for us. We will place our assets inside here! For this - in Kenneys Asset I downloaded I’m going to use Tilemaps/tilemap-characters_packed.png and I will rename it to Characters.png\nHere is what my folder structure looks like now:\n└── 📁Content\r└── 📁Assets\r└── Characters.png\r└── Content.mgcb Great! we now have our assets… so now what?\nWell MonoGame uses its own tool to essentially ‘pack’ our asset data. There’s more details to it - If intrested feel free to ask in the Discord! - But for us we don’t need to think too hard about it!\nWe first need to get over the hurdle of opening this tool. This can be a struggle to open sometimes - and sometimes it goes smoothly.\nIf youre using VS2022 since you’ve downloaded the templates you should be able to double click Content.mgcb in the explorer.\nAs for Visual Studio Code users / JetBrains Rider / Any other editor we will open from the terminal.\nIn your project directory run the following command:\ndotnet tool restore (Should only have to run this one time) and then run\ndotnet mgcb-editor ./Content/Content.mgcb\nThis should hopefully open the MGCB Editor. If you are having any issues refer to the official documentation Here. You can also ak in the #help channel of the official Discord and I’m sure someone will be able to assist\nMGCB Editor Nice! You’re in the editor now. On the left pane is where our projects resource structure is. If we try to load an asset that is not here / built it will not load and crash.\nSo lets get our assets here. Select the little folder icon with the green + sign next to it. And navigate to our Content/Asset folder and select it.\nOnce you select the Asset folder it should now show on the left pain with our Characters.png\nGreat! now all we have to do is build our assets. Select the “Build” option in the top menu of selections.\nOur file should now have been successfully built!\nMain Methods of Game1.cs We now built our assets! I will give a quick break down of the main methods within Game1.cs (Feel free to rename but I will refer to this file as such throughout the tutorial).\nThere is 4 methods here and our games constructor. The methods come from the inherited Game class within MonoGame.\nConstructor\nThe constructor gets called before initialize. Contains some initial settings for us by default I tend to leave this default and use Initialize for my additions. Initialize\nInitialize gets called once at the start of our game. I use this to specify MonoGame related settings after my Games initialization LoadContent\nLoadContent is a little self explainator, This is where we will load our content. Called after Initialize Update\nUpdate is our main game loop and where majority of our code will live We will set our FPS to 60FPS. Draw\nDraw is where our code for drawing our game to the screen will live. Draw uses SpriteBatches for our draw calls. We will stick to using 1 Spritebatch (besides 1 exception later on) We want to not have any calculations in here if possible. This should only be used for drawing Here is a more detailed image of the execution order for MonoGame:\nLoading our asset In order to see our asset on screen we will need to load it. Lets do that now! (Finally)\nAt the top of our PixelPlatformer class lets create a variable to hold our Texture, just under the SpriteBatch\nprivate GraphicsDeviceManager _graphics; private SpriteBatch _spriteBatch; private Texture2D _characterAtlas; Lets now load it in LoadContent\nprotected override void LoadContent() { _spriteBatch = new SpriteBatch(GraphicsDevice); _characterAtlas = Content.Load(\"Assets/Characters\"); } We need to use the ContentManager to load our asset from what we just built in MGCB Editor. To do this we need to call Content.Load\u003c\u003e() with the type Texture2D since that is what we are loading and pass in the path to the Texture. This path is a relative path from our MGCB Content. If you recall in MGCB Editor We had Content/ and then we added Assets/Characters.png to it. the path is relative to Content/ as the root. So we pass in Asset/Characters without the file extension - MonoGames MGCB built a XNB \u0026 mgcontent file from our png and it will use our path to find it. You can see these in our files: Content/bin/DesktopGL/Assets/Characters.xnb \u0026 Content/obj/DesktopGL/Assets/Characters.mgcontent.\nLets draw this texture to the screen.\nprotected override void Draw(GameTime gameTime) { GraphicsDevice.Clear(Color.CornflowerBlue); _spriteBatch.Begin(SpriteSortMode.Deferred, samplerState: SamplerState.PointClamp); _spriteBatch.Draw(_characterAtlas, new Vector2(200, 200), Color.White); _spriteBatch.End(); base.Draw(gameTime); } _spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp); Here we need to specify the start of our draw calls with Being(); while also passing some extra parameters SpriteSortMode.BackToFront will allow us to specify a depth with a float from 0.0 - 1.0 for what order to draw the sprite. samplerState: SamplerState.PointClamp optional parameter is used to ensure we keep sharp pixels for our low res image.\n_spriteBatch.Draw(_characterAtlas, new Vector2(200, 200), Color.White); _spriteBatch.End(); The Draw() method has quite a few overloads. For now we simply just want to draw it to the screen, So we are using the overload for Texture/Position/Color\nWe specify our texture variable we made, a Vector2 for the position new Vector2(200, 200) and the Color. We will only be using Color.White in here. It ensures to always draw the complete image.\nAnd then we simply call End() to specify we are done with this batch. But again - for now all our drawing logic will be inbetween the same Begin and End calls.\nIf you run the game now we should now see our texture on the screen!\nWoohoo! An image!~ We made a game!… wait a second, this doesnt seem right? we see all the characters! AND ITS SO SMALL?\nSo in the next post we will solve this! we will\nCreate it so we only see the character we want Enlarge the character so it is bigger on our screen. And if theres time we will move it around as well! Thank you! I hope this part was hopeful to you! As always make sure to join the Discord and feel free to ping me Ellie.x3.\nI also made a post in #Forums called Ellies Dev Tutorial Blog. Please post feedback there!\nAlso I now made a github repo! All code is Here\n",
-  "wordCount" : "1163",
-  "inLanguage": "en",
-  "datePublished": "2024-03-21T18:56:19-03:00",
-  "dateModified": "2024-03-21T18:56:19-03:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://elliemakesgames.xyz/posts/pixelplatformer2/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Ellies Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://elliemakesgames.xyz/favicon.ico"
-    }
-  }
-}
-</script>
+</noscript>
 </head>
 
 <body class="" id="top">
@@ -136,7 +74,7 @@ This is also the first look at what we will be trying to create!"/>
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://elliemakesgames.xyz/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -162,12 +100,7 @@ This is also the first look at what we will be trying to create!"/>
         </div>
         <ul id="menu">
             <li>
-                <a href="http://elliemakesgames.xyz/categories/" title="Categories">
-                    <span>Categories</span>
-                </a>
-            </li>
-            <li>
-                <a href="http://elliemakesgames.xyz/tags/" title="Tags">
+                <a href="http://localhost:1313/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -178,7 +111,7 @@ This is also the first look at what we will be trying to create!"/>
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://elliemakesgames.xyz/">Home</a>&nbsp;»&nbsp;<a href="http://elliemakesgames.xyz/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Pixel Platformer Part 2
     </h1>
@@ -214,7 +147,7 @@ But for us we don&rsquo;t need to think too hard about it!</p>
 <p><code>dotnet tool restore</code> (Should only have to run this one time) and then run</p>
 <p><code>dotnet mgcb-editor ./Content/Content.mgcb</code></p>
 <p>This should <em>hopefully</em> open the MGCB Editor. If you are having any issues refer to the official documentation <a href="https://monogame.net/articles/tools/mgcb_editor.html">Here</a>.
-You can also ak in the #help channel of the official Discord and I&rsquo;m sure someone will be able to assist</p>
+You can also ask in the #help channel of the official Discord and I&rsquo;m sure someone will be able to assist</p>
 <h1 id="mgcb-editor">MGCB Editor<a hidden class="anchor" aria-hidden="true" href="#mgcb-editor">#</a></h1>
 <p>Nice! You&rsquo;re in the editor now. On the left pane is where our projects resource structure is. If we try to load an asset that is not here / built it will not load and crash.</p>
 <p>So lets get our assets here. Select the little folder icon with the green + sign next to it. And navigate to our <code>Content/Asset</code> folder and select it.</p>
@@ -243,13 +176,13 @@ You can also ak in the #help channel of the official Discord and I&rsquo;m sure 
 <p><strong>Initialize</strong></p>
 <ul>
 <li>Initialize gets called once at the start of our game.</li>
-<li>I use this to specify MonoGame related settings after my Games initialization</li>
+<li>I use this to specify MonoGame related settings and then my Games initialization</li>
 </ul>
 </li>
 <li>
 <p><strong>LoadContent</strong></p>
 <ul>
-<li>LoadContent is a little self explainator, This is where we will load our content.</li>
+<li>LoadContent is a little self-explanitory, This is where we will load our content.</li>
 <li>Called after Initialize</li>
 </ul>
 </li>
@@ -257,7 +190,6 @@ You can also ak in the #help channel of the official Discord and I&rsquo;m sure 
 <p><strong>Update</strong></p>
 <ul>
 <li>Update is our main game loop and where majority of our code will live</li>
-<li>We will set our FPS to 60FPS.</li>
 </ul>
 </li>
 <li>
@@ -288,9 +220,9 @@ You can also ak in the #help channel of the official Discord and I&rsquo;m sure 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    _characterAtlas = Content.Load&lt;Texture2D&gt;(<span style="color:#e6db74">&#34;Assets/Characters&#34;</span>);
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>We need to use the ContentManager to load our asset from what we just built in MGCB Editor. To do this we need to call <code>Content.Load&lt;&gt;()</code>
+</span></span></code></pre></div><p>We need to use the ContentManager to load our asset from what we just built in MGCB Editor. To do this we need to call <code>Content.Load&lt;&gt;()</code> (Content is defined in the Game class)
 with the type Texture2D since that is what we are loading and pass in the path to the Texture. This path is a <em>relative</em> path from our MGCB Content.
-If you recall in MGCB Editor We had Content/ and then we added Assets/Characters.png to it. the path is relative to Content/ as the root.
+If you recall in MGCB Editor We had <code>Content/</code> and then we added <code>Assets/Characters.png</code> to it. the path is relative to <code>Content/</code> as the root.
 So we pass in <code>Asset/Characters</code> <strong>without</strong> the file extension - MonoGames MGCB built a XNB &amp; mgcontent file from our png and it will use our path to find it. You can
 see these in our files: <code>Content/bin/DesktopGL/Assets/Characters.xnb</code> &amp; <code>Content/obj/DesktopGL/Assets/Characters.mgcontent</code>.</p>
 <p>Lets draw this texture to the screen.</p>
@@ -306,20 +238,20 @@ see these in our files: <code>Content/bin/DesktopGL/Assets/Characters.xnb</code>
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><hr>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>_spriteBatch.Begin(SpriteSortMode.BackToFront, samplerState: SamplerState.PointClamp);
-</span></span></code></pre></div><p>Here we need to specify the start of our draw calls with <code>Being();</code> while also passing some extra parameters
+</span></span></code></pre></div><p>Here we need to specify the start of our draw calls with <code>Being();</code> while also passing some extra optional parameters
 <code>SpriteSortMode.BackToFront</code> will allow us to specify a depth with a float from 0.0 - 1.0 for what order to draw the sprite.
-<code>samplerState: SamplerState.PointClamp</code> optional parameter is used to ensure we keep sharp pixels for our low res image.</p>
+<code>samplerState: SamplerState.PointClamp</code> parameter is used to ensure we keep sharp pixels for our low res image.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span>_spriteBatch.Draw(_characterAtlas, <span style="color:#66d9ef">new</span> Vector2(<span style="color:#ae81ff">200</span>, <span style="color:#ae81ff">200</span>), Color.White);
 </span></span><span style="display:flex;"><span>_spriteBatch.End();
 </span></span></code></pre></div><p>The <code>Draw()</code> method has quite a few overloads. For now we simply just want to draw it to the screen, So we are using the overload for Texture/Position/Color</p>
 <p>We specify our texture variable we made, a Vector2 for the position <code>new Vector2(200, 200)</code> and the Color. We will only be using Color.White in here. It ensures
-to always draw the complete image.</p>
+to always draw the complete image as it was drawn.</p>
 <p>And then we simply call <code>End()</code> to specify we are done with this batch. But again - for now all our drawing logic will be inbetween the same
 <code>Begin</code> and <code>End</code> calls.</p>
 <p>If you run the game now we should now see our texture on the screen!</p>
 <p><img loading="lazy" src="/imgs/pixelplatformer/window.png" alt="Window Image"  />
 </p>
-<p>Woohoo! An image!~ We made a game!&hellip; wait a second, this doesnt seem right? we see all the characters! AND ITS SO SMALL?</p>
+<p>Woohoo! An image!~ We made a game!&hellip; wait a second, this doesnt seem right? we see all the characters! <strong>AND ITS SO SMALL?</strong></p>
 <p>So in the next post we will solve this! we will</p>
 <ul>
 <li>Create it so we only see the character we want</li>
@@ -336,15 +268,15 @@ to always draw the complete image.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://elliemakesgames.xyz/tags/monogame/">MonoGame</a></li>
-      <li><a href="http://elliemakesgames.xyz/tags/pixelplatformer/">PixelPlatformer</a></li>
+      <li><a href="http://localhost:1313/tags/monogame/">MonoGame</a></li>
+      <li><a href="http://localhost:1313/tags/pixelplatformer/">PixelPlatformer</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://elliemakesgames.xyz/">Ellies Blog</a></span>
+    <span>&copy; 2024 <a href="http://localhost:1313/">Ellies Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
