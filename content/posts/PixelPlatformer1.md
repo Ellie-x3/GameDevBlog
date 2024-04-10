@@ -19,7 +19,7 @@ First we will install [Visual Studio](https://visualstudio.microsoft.com/vs/) - 
 When installing make sure to select the correct .NET options
 
 
-![alt text](https://monogame.net/articles/getting_started/images/1_installer_vs_components.png "Install selections")
+!["Install selections"](https://docs.monogame.net/articles/getting_started/images/1_installer_vs_components.png)
 
 Once Visual Studio is installed we will install the monogame templates.
 
@@ -32,7 +32,7 @@ You may be prompted to install it and close VS 2022 to proceed.
 
 This will allow us to now use Visual Studio to create our game by selecting the template
 
-![Template](https://monogame.net/articles/getting_started/images/vswin_mg_new_2.png)
+![Template](https://docs.monogame.net/articles/getting_started/images/1_visual_studio_extension_manager.png)
 
 ## **OTHER DEV ENVIRONMENTS**
 
