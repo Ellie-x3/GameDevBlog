@@ -406,4 +406,6 @@ The next part we will be preparing to adding more movement to our player for fal
 If your character is not moving when pressing the keys make sure you are calling initialize and update functions. 
 I highly suggest looking through this part a second time to make sure you didnt miss any small details 
 
-If you still have any trouble please post in my Forum post on the MonoGame discord in `#Forums` channel named `Ellies Dev Tutorial Blog` or send me a private message with the error you are having! Discord Tag: ellie.x3
+If you still have any trouble please post in the [Github Disscusion](https://github.com/MonoGame/MonoGame/discussions/8271) or message me privately on discord! tag: ellie.x3
+
+[Complete source code](https://github.com/Ellie-x3/PlatformerTutorial)
