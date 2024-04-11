@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://elliemakesgames.net/</loc>
     <lastmod>2024-04-08T19:30:50-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/monogame/</loc>
+    <loc>http://elliemakesgames.net/tags/monogame/</loc>
     <lastmod>2024-04-08T19:30:50-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/pixelplatformer3/</loc>
+    <loc>http://elliemakesgames.net/posts/pixelplatformer3/</loc>
     <lastmod>2024-04-08T19:30:50-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pixelplatformer/</loc>
+    <loc>http://elliemakesgames.net/tags/pixelplatformer/</loc>
     <lastmod>2024-04-08T19:30:50-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>http://elliemakesgames.net/posts/</loc>
     <lastmod>2024-04-08T19:30:50-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://elliemakesgames.net/tags/</loc>
     <lastmod>2024-04-08T19:30:50-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/pixelplatformer1/</loc>
+    <loc>http://elliemakesgames.net/posts/pixelplatformer1/</loc>
     <lastmod>2024-03-21T18:56:19-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/pixelplatformer2/</loc>
+    <loc>http://elliemakesgames.net/posts/pixelplatformer2/</loc>
     <lastmod>2024-03-21T18:56:19-03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://elliemakesgames.net/categories/</loc>
   </url>
 </urlset>

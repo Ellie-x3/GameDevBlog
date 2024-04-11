@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Pixel Platformer Part 1 | Ellies Blog</title>
 <meta name="keywords" content="MonoGame, PixelPlatformer">
 <meta name="description" content="MonoGame Setup Time to do some Game Dev!
@@ -12,16 +12,16 @@ First we will need to go through the installation steps for MonoGame Steps: Here
 This Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.
 First we will install Visual Studio - This will help speed up the install process">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/pixelplatformer1/">
+<link rel="canonical" href="http://elliemakesgames.net/posts/pixelplatformer1/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5b90f603e721c9591f92e42d19ae1c3113a2929e7366bea5977d446c153b4186.css" integrity="sha256-W5D2A&#43;chyVkfkuQtGa4cMROikp5zZr6ll31EbBU7QYY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="http://elliemakesgames.net/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://elliemakesgames.net/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://elliemakesgames.net/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://elliemakesgames.net/apple-touch-icon.png">
+<link rel="mask-icon" href="http://elliemakesgames.net/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/pixelplatformer1/">
+<link rel="alternate" hreflang="en" href="http://elliemakesgames.net/posts/pixelplatformer1/">
 <noscript>
     <style>
         #theme-toggle,
@@ -58,7 +58,73 @@ First we will install Visual Studio - This will help speed up the install proces
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:title" content="Pixel Platformer Part 1" />
+<meta property="og:description" content="MonoGame Setup Time to do some Game Dev!
+First we will need to go through the installation steps for MonoGame Steps: Here
+This Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.
+First we will install Visual Studio - This will help speed up the install process" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://elliemakesgames.net/posts/pixelplatformer1/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-21T18:56:19-03:00" />
+<meta property="article:modified_time" content="2024-03-21T18:56:19-03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pixel Platformer Part 1"/>
+<meta name="twitter:description" content="MonoGame Setup Time to do some Game Dev!
+First we will need to go through the installation steps for MonoGame Steps: Here
+This Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.
+First we will install Visual Studio - This will help speed up the install process"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://elliemakesgames.net/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Pixel Platformer Part 1",
+      "item": "http://elliemakesgames.net/posts/pixelplatformer1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pixel Platformer Part 1",
+  "name": "Pixel Platformer Part 1",
+  "description": "MonoGame Setup Time to do some Game Dev!\nFirst we will need to go through the installation steps for MonoGame Steps: Here\nThis Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.\nFirst we will install Visual Studio - This will help speed up the install process",
+  "keywords": [
+    "MonoGame", "PixelPlatformer"
+  ],
+  "articleBody": "MonoGame Setup Time to do some Game Dev!\nFirst we will need to go through the installation steps for MonoGame Steps: Here\nThis Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.\nFirst we will install Visual Studio - This will help speed up the install process\nWhen installing make sure to select the correct .NET options\nOnce Visual Studio is installed we will install the monogame templates.\nLaunch VS 2022 Select the “Continue Without Code” option At the top of your screen select “extensions” tab and then “Manage Extensions” In the search box search for “MonoGame” and install the c# project templates You may be prompted to install it and close VS 2022 to proceed.\nThis will allow us to now use Visual Studio to create our game by selecting the template\nOTHER DEV ENVIRONMENTS If you prefer using Jetbrains Rider or Visual Studio Code (Like Myself) we will need to install the .NET SDK Here\nDownload the latest SDK for your operating system to continue\nOnce installed you should now have a new command tool. Run the following commands in your command prompt:\ndotnet --version Note you may need to close and re-open command prompt if previously opened.\nNow that you have dotnet installed. You can create a project with the following:\ndotnet new --install MonoGame.Templates.CSharp dotnet new mgdesktopgl -o PixelPlatformer We will be using the opengl template for this tutorial but there are several other templates for different backends.\nWhere -o is the project directory it will create.\nProject has been made Now that you successfully created your project with either VS 2022 Templates or via dotnet we will check out the code.\nFirstly the files it created: Most of these we can ignore for now\nWe Will focus on the following\nContent Game1.cs Program.cs The Content folder is where you will find Content.mgcb. This is where we “Pack” our assets for our game, be it images, sounds, effects, etc…\nGame1.cs is the bulk of our game code is. This is the entry point for our game.\nProgram.cs is the file which will run our game to begin the Game1.cs method calls - We will just be changing the name of our game here.\nPreparing our game Lets open the Window!\nTo do so we could simply run this as is and it will open a window but we will change a few things first.\nFirst, open Game1.cs\nHere you will find the initialize function\nprotected override void Initialize() { base.Initialize(); } We will add the following code:\nprotected override void Initialize() { _graphics.PreferredBackBufferWidth = 1280; _graphics.PreferredBackBufferHeight = 720; _graphics.ApplyChanges(); base.Initialize(); } This will change the Width \u0026 Height of our games window. I use 1920x1080 monitor so I am using 1280x720 for my Window. I recommend for this tutorial to stick with a 16:9 ratio window.\nBefore we finish up this part we will just rename our project.\nRename Game1.cs to PixelPlatformer.cs\nAnd search in this file for any instances of Game1 and replace it with PixelPlatformer. Do not rename “Game” Only “Game1”\nHere is my whole File:\nusing Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Graphics; using Microsoft.Xna.Framework.Input; namespace PlatformerTutorial; public class PixelPlatformer : Game { private GraphicsDeviceManager _graphics; private SpriteBatch _spriteBatch; public PixelPlatformer() { _graphics = new GraphicsDeviceManager(this); Content.RootDirectory = \"Content\"; IsMouseVisible = true; } protected override void Initialize() { _graphics.PreferredBackBufferWidth = 1280; _graphics.PreferredBackBufferHeight = 720; _graphics.ApplyChanges(); base.Initialize(); } protected override void LoadContent() { _spriteBatch = new SpriteBatch(GraphicsDevice); // TODO: use this.Content to load your game content here } protected override void Update(GameTime gameTime) { if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit(); // TODO: Add your update logic here base.Update(gameTime); } protected override void Draw(GameTime gameTime) { GraphicsDevice.Clear(Color.CornflowerBlue); // TODO: Add your drawing code here base.Draw(gameTime); } } And Program.cs\nusing var game = new PlatformerTutorial.PixelPlatformer(); game.Run(); To now test our “Game” In VS2022 simply press the Green start arrow in the top center\nFor dotnet users, open a terminal in the same directory as the “PixelPlatformer.csproj” and type\ndotnet run . If everything worked correctly you should now see a window pop-up with a nice Cornflower blue in our 1280x720 window.\nThats it for this part in the next part we will cover:\nGoing breifly over the main methods in Game1.cs Loading our first image using Content.mgcb Please join the MonoGame Discord if you have any questions. Please feel free to ping me (Ellie.x3) in my Forum post for this blog. Discord\n",
+  "wordCount" : "759",
+  "inLanguage": "en",
+  "datePublished": "2024-03-21T18:56:19-03:00",
+  "dateModified": "2024-03-21T18:56:19-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://elliemakesgames.net/posts/pixelplatformer1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ellies Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://elliemakesgames.net/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -76,7 +142,7 @@ First we will install Visual Studio - This will help speed up the install proces
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
+            <a href="http://elliemakesgames.net/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -102,7 +168,7 @@ First we will install Visual Studio - This will help speed up the install proces
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="http://elliemakesgames.net/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -113,7 +179,7 @@ First we will install Visual Studio - This will help speed up the install proces
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://elliemakesgames.net/">Home</a>&nbsp;»&nbsp;<a href="http://elliemakesgames.net/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Pixel Platformer Part 1
     </h1>
@@ -263,15 +329,15 @@ to stick with a 16:9 ratio window.</p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/monogame/">MonoGame</a></li>
-      <li><a href="http://localhost:1313/tags/pixelplatformer/">PixelPlatformer</a></li>
+      <li><a href="http://elliemakesgames.net/tags/monogame/">MonoGame</a></li>
+      <li><a href="http://elliemakesgames.net/tags/pixelplatformer/">PixelPlatformer</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://localhost:1313/">Ellies Blog</a></span>
+    <span>&copy; 2024 <a href="http://elliemakesgames.net/">Ellies Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

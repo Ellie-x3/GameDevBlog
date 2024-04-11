@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ellies Blog</title>
-    <link>http://localhost:1313/</link>
+    <link>http://elliemakesgames.net/</link>
     <description>Recent content on Ellies Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 08 Apr 2024 19:30:50 -0300</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://elliemakesgames.net/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pixel Platformer Part 3</title>
-      <link>http://localhost:1313/posts/pixelplatformer3/</link>
+      <link>http://elliemakesgames.net/posts/pixelplatformer3/</link>
       <pubDate>Mon, 08 Apr 2024 19:30:50 -0300</pubDate>
-      <guid>http://localhost:1313/posts/pixelplatformer3/</guid>
+      <guid>http://elliemakesgames.net/posts/pixelplatformer3/</guid>
       <description>Character selection &amp;amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.
 I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.</description>
     </item>
     <item>
       <title>Pixel Platformer Part 1</title>
-      <link>http://localhost:1313/posts/pixelplatformer1/</link>
+      <link>http://elliemakesgames.net/posts/pixelplatformer1/</link>
       <pubDate>Thu, 21 Mar 2024 18:56:19 -0300</pubDate>
-      <guid>http://localhost:1313/posts/pixelplatformer1/</guid>
+      <guid>http://elliemakesgames.net/posts/pixelplatformer1/</guid>
       <description>MonoGame Setup Time to do some Game Dev!
 First we will need to go through the installation steps for MonoGame Steps: Here
 This Guide will be for MonoGame on Windows but there is steps in the documentation for other platforms. I will quickly go through the steps but I highly encourage going through the documentation yourself aswell.
@@ -28,9 +28,9 @@ First we will install Visual Studio - This will help speed up the install proces
     </item>
     <item>
       <title>Pixel Platformer Part 2</title>
-      <link>http://localhost:1313/posts/pixelplatformer2/</link>
+      <link>http://elliemakesgames.net/posts/pixelplatformer2/</link>
       <pubDate>Thu, 21 Mar 2024 18:56:19 -0300</pubDate>
-      <guid>http://localhost:1313/posts/pixelplatformer2/</guid>
+      <guid>http://elliemakesgames.net/posts/pixelplatformer2/</guid>
       <description>Textures! Let&amp;rsquo;s Use Some To see anything on our beautiful new window we will need ourselves some textures/assets. While you can opt to use your own art for the sake of this tutorial I will be using Kenneys Assets. If you also use his assets please make sure to give him your support as all his assets are free! Kenneys Assets I am using
 This is also the first look at what we will be trying to create!</description>
     </item>

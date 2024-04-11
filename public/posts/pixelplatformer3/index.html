@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>Pixel Platformer Part 3 | Ellies Blog</title>
 <meta name="keywords" content="MonoGame, PixelPlatformer">
 <meta name="description" content="Character selection &amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.
 I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/pixelplatformer3/">
+<link rel="canonical" href="http://elliemakesgames.net/posts/pixelplatformer3/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.5b90f603e721c9591f92e42d19ae1c3113a2929e7366bea5977d446c153b4186.css" integrity="sha256-W5D2A&#43;chyVkfkuQtGa4cMROikp5zZr6ll31EbBU7QYY=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="http://elliemakesgames.net/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://elliemakesgames.net/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://elliemakesgames.net/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://elliemakesgames.net/apple-touch-icon.png">
+<link rel="mask-icon" href="http://elliemakesgames.net/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/pixelplatformer3/">
+<link rel="alternate" hreflang="en" href="http://elliemakesgames.net/posts/pixelplatformer3/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,7 +56,69 @@ I will start picking up the pace of explaining the code as we will soon be divin
         }
 
     </style>
-</noscript>
+</noscript><meta property="og:title" content="Pixel Platformer Part 3" />
+<meta property="og:description" content="Character selection &amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.
+I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://elliemakesgames.net/posts/pixelplatformer3/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-08T19:30:50-03:00" />
+<meta property="article:modified_time" content="2024-04-08T19:30:50-03:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Pixel Platformer Part 3"/>
+<meta name="twitter:description" content="Character selection &amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.
+I will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://elliemakesgames.net/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Pixel Platformer Part 3",
+      "item": "http://elliemakesgames.net/posts/pixelplatformer3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pixel Platformer Part 3",
+  "name": "Pixel Platformer Part 3",
+  "description": "Character selection \u0026amp; Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.\nI will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.",
+  "keywords": [
+    "MonoGame", "PixelPlatformer"
+  ],
+  "articleBody": "Character selection \u0026 Input! For Part 3 of this tutorial we will be diving into selecting the character we want to use from our spritesheet and the creation of our Input class.\nI will start picking up the pace of explaining the code as we will soon be diving into a lot more code and it will help me if I explain a little quicker. Feel free to reach out to me on Discord if you need further explanations.\nCharacter selection So we need to select the character we want to use out of the atlas we previously rendered to the screen.\nTo do this we will use a different override for the Draw() Method. Specifically we will use the Draw(Texture2D texture, Vector2 position, Rectangle rectangle, Color color)\nRectangle? Whats that?\nThe Rectangle parameter we will use is specifically defined as the source rectangle. There is another rectanlge called the destination rectangle but we will not worry about that now. So the source rectangle will define a rectangle on our Texture2D atlas and render just what is inside that source rectangle.\nSo we will define a rectangle that takes in 4 parameters. The position x \u0026 y on our Texture2D and the width and height we want to render.\nReference the image below - our atlas is evenly divided into 24x24 for each sprite as shown with the grid\nSo lets say we want the red character for example. We need to find the X \u0026 Y value of the top left corner of that characters square on the grid.\nThis is the top left of the red characters square. So we can just use our art app to see what the X and Y value is: 96, 0 If you dont want to open an art app to see the exact value, since we know everything is spaced 24x24 we can just do some simple math: 24*4 \u0026 24*0 to get 96 \u0026 0\nNow that we have the X \u0026 Y 96, 0 we just need the width and height. Which we already know is 24x24. Perfect!\nThen you would just fill in the parameters of the Rectangle with these values.\nBut for this tutorial we will use the green character in the first 2 positions. so we will start with these values for our Rectangle: X \u0026 Y: 0, 0 and Width \u0026 Height: 24, 24.\nOkay lets create our variables:\nunderneath our _characterAtlas variable we will create the following:\nprivate Texture2D _characterAtlas; #region player private Rectangle _characterRect = new Rectangle(0,0,24,24); // private Vector2 _playerPosition = new Vector2(200, 200); #endregion The region is just for cleaniness - we will be moving everything to a Player class in an upcoming part.\nNow to just render this we will update our Draw() call to the following:\n_spriteBatch.Draw(_characterAtlas, _playerPosition, _characterRect, Color.White); You should now only see the character instead of the whole atlas! But it is still very very small. so we will quickly fix this now.\nSizing up the character For now for simplicity sake we will quickly adjust the players size. But this will soon be changed in an upcoming part so that everything will be sized up by default.\nTo do this is quite simple. We will just use the Scale parameter in the Draw() call. Though there are a couple other arguments aswell.\n_spriteBatch.Draw(_characterAtlas, _playerPosition, _characterRect, Color.White, 0f, Vector2.Zero, 2.5f, SpriteEffects.None, 0f); Updating our draw call to this line here will make the player 2.5 times bigger. the parameters of this override are as follows:\nDraw(Texture2D texture, Vector2 position, Rectangle sourceRectangle, Color color, float rotation, Vector2 origin, float scale, SpriteEffects spriteEffects, float layerDepth)\nWe will set the roation to 0f, origin to Vector2.Zero, Scale to 2.5f, SpriteEffects to SpriteEffects.None, and layerDepth to 0f. Most of these are self explanitory but we will go over them when we use them.\nYou should now see the character and he’s bigger now! WooHoo! Now lets make him move!\nMoving the character To begin moving the character we need to poll for input from our game. To do so we will create a seperate Input class.\nCreate the following folder and file structure:\n└── 📁Src └── 📁Util └── Input.cs Lets create our class! start with the basic outline of the class:\nusing System; using System.Linq; using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Input; namespace PixelPlatformer.Util; public static class Input { } We will create this class in the namespace namespace PixelPlatformer.Util\nThe variables we need for this class are the following:\npublic static class Input { private static KeyboardState _currentKeyboard; private static KeyboardState _previousKeyboard; private static int[] _keyCodes; private static bool[] _keyPress; private static bool[] _keyDown; } We will need to capture the current frames state and the previous frame state of our keyboard to determine if a key is held vs pressed.\nWe will create 3 Arrays to hold the data of all our key codes as ints - a bool array for pressed keys and a bool array of held down keys.\nWe will also need the following functions\npublic static class Input { private static KeyboardState _currentKeyboard; private static KeyboardState _previousKeyboard; private static int[] _keyCodes; private static bool[] _keyPress; private static bool[] _keyDown; public static void Initialize(){ } public static void Update(GameTime gameTime){ } public static bool IsKeyPressed(Keys key){ } public static bool IsKeyDown(Keys key){ } } These 4 functions are all we need to get basic keyboard input from across our game.\nInitialize will initialize our arrays Update will check our keyboard every frame and update its state IsKeyPressed will return true or false if a key is just pressed IsKeyDown will return true or false if a key is held down Lets start with initialize\npublic static void Initialize(){ _keyCodes = Enum.GetValues(typeof(Keys)).Cast\u003cint\u003e().ToArray(); _keyPress = new bool[_keyCodes.Length]; _keyDown = new bool[_keyCodes.Length]; } We will initialize our arrays.\n_keyCodes = Enum.GetValues(typeof(Keys)).Cast().ToArray(); this will convert MonoGames enum Keys to their respective integer values of the enum _keyPress = new bool[_keyCodes.Length]; we will initialize _keyPress with the size of how many keys codes we have _keyDown = new bool[_keyCodes.Length]; we will initialize _keyDown with the size of how many keys codes we have Update\npublic static void Update(GameTime gameTime){ _currentKeyboard = Keyboard.GetState(); for(int i = 0; i \u003c _keyCodes.Length; i++){ Keys key = (Keys)_keyCodes[i]; if(_currentKeyboard.IsKeyDown(key) \u0026\u0026 !_previousKeyboard.IsKeyDown(key)){ _keyPress[i] = true; } else { _keyPress[i] = false; } if(_currentKeyboard.IsKeyDown(key) \u0026\u0026 _previousKeyboard.IsKeyDown(key)){ _keyDown[i] = true; } else { _keyDown[i] = false; } } _previousKeyboard = Keyboard.GetState(); } Slightly more complex. We will first capture the keyboards state this frame _currentKeyboard = Keyboard.GetState();\nWe will then loop with the for() loop to check all our keys.\nWe will now cast the key to the enum value Keys key = (Keys)_keyCodes[i]; so if i = 0 it will set key = the first enum value note that the enum is a list of all keyboard keys which is provided by MonoGame in the using Microsoft.Xna.Framework.Input;\nif(_currentKeyboard.IsKeyDown(key) \u0026\u0026 !_previousKeyboard.IsKeyDown(key)) this if statement will check the current keyabord if KeyIsDown and it will check the previous keyboard if the key was NOT down.\nExample: frame 100 of our game running we are not pressing A on the keyboard and then on frame 101 we press A then this if statement will return true.\nWe then set the key in our _keyPress[] to true using i since i corresponds to the position of the key in our array\nExample: _keyPress is filled with our keycodes enum. Lets say our enum has 4 keys W, A, S, D in initialize we are setting _keyPress[] to the size of our enum _keyPress = new bool[_keyCodes.Length]; so since its a bool array our array looks like this [0, 0, 0, 0] with each position representing the enum. so position 0 = W, 1 = A, etc… Looping through the key codes - for this example the enum is W, A, S, D it will loop through them in that order. it will check IsKeyDown(W) and so on throughout our for loop. So lets say we press A it will check IsKeyDown(W) which is false. Next iteration it will check IsKeyDown(A) true! so we set _keyPress[i] = true so our array now looks like [0, 1, 0, 0].\nThis was a simple example as MonoGame covers all keys there are a lot more keys defined within monogame - but this is the basic idea of what we are implementing.\nWe will then just check if current state is Down and the previous state is also Down we will the set our _keyDown[] array to true or false if(_currentKeyboard.IsKeyDown(key) \u0026\u0026 _previousKeyboard.IsKeyDown(key))\nDont forget to set to false if these conditions do not match the expressions.\nAnd to end the update frame we will set prev keyboard to this frames state so the next frame can use the data for its if checks _previousKeyboard = Keyboard.GetState();\nThis is simplier then it looks but trust me it will make using input a lot easier for us!\nThe next two functions are just to check if the key is pressed or held down\npublic static bool IsKeyPressed(Keys key){ int i = Array.FindIndex(_keyCodes, x =\u003e x == (int)key); return _keyPress[i]; } public static bool IsKeyDown(Keys key){ int i = Array.FindIndex(_keyCodes, x =\u003e x == (int)key); return _keyDown[i]; } This is pretty self explanitory - we are just checking if the key we specify is true or false in our 2 bool arrays we made for pressed \u0026 down.\nFull class:\nusing System; using System.Linq; using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Input; namespace PixelPlatformer.Util; public static class Input { private static KeyboardState _currentKeyboard; private static KeyboardState _previousKeyboard; private static int[] _keyCodes; private static bool[] _keyPress; private static bool[] _keyDown; public static void Initialize(){ _keyCodes = Enum.GetValues(typeof(Keys)).Cast\u003cint\u003e().ToArray(); _keyPress = new bool[_keyCodes.Length]; _keyDown = new bool[_keyCodes.Length]; } public static void Update(GameTime gameTime){ _currentKeyboard = Keyboard.GetState(); for(int i = 0; i \u003c _keyCodes.Length; i++){ Keys key = (Keys)_keyCodes[i]; if(_currentKeyboard.IsKeyDown(key) \u0026\u0026 !_previousKeyboard.IsKeyDown(key)){ _keyPress[i] = true; } else { _keyPress[i] = false; } if(_currentKeyboard.IsKeyDown(key) \u0026\u0026 _previousKeyboard.IsKeyDown(key)){ _keyDown[i] = true; } else { _keyDown[i] = false; } } _previousKeyboard = Keyboard.GetState(); } public static bool IsKeyPressed(Keys key){ int i = Array.FindIndex(_keyCodes, x =\u003e x == (int)key); return _keyPress[i]; } public static bool IsKeyDown(Keys key){ int i = Array.FindIndex(_keyCodes, x =\u003e x == (int)key); return _keyDown[i]; } } Great! now lets use this class in our main Game class.\nDON’T MISS THIS STEP Don’t forget to call our Initialize() and Update() in our main games Initialize and Update functions\nprotected override void Initialize() { _graphics.PreferredBackBufferWidth = 1280; _graphics.PreferredBackBufferHeight = 720; _graphics.ApplyChanges(); Window.AllowUserResizing = false; Input.Initialize(); base.Initialize(); } protected override void Update(GameTime gameTime) { if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) Exit(); // TODO: Add your update logic here Input.Update(gameTime); base.Update(gameTime); } Using our new Input class Lets move the character with our Input class now!\nFirst we will add a couple variables for our players magnitude \u0026 speed:\n#region player private Rectangle _characterRect = new Rectangle(0,0,24,24); // private Vector2 _playerPosition = new Vector2(200, 200); private Vector2 _playerMagnitude = Vector2.Zero; private float _playerSpeed = 6.0f; #endregion in our update function we will do the following: Make sure to do it AFTER calling Update()\nInput.Update(gameTime); _playerMagnitude = Vector2.Zero; if(Input.IsKeyDown(Keys.A)){ _playerMagnitude.X = -1; } if (Input.IsKeyDown(Keys.D)) { _playerMagnitude.X = 1; } _playerPosition.X += _playerMagnitude.X * _playerSpeed; _playerMagnitude = Vector2.Zero; set magnitude to Vector2.Zero at the beginning of a frame If statements to check our keys to see if they are pressed down. and setting the X magnitude to -1 for left and 1 for right if(Input.IsKeyDown(Keys.A)){ _playerMagnitude.X = -1; } if (Input.IsKeyDown(Keys.D)) { _playerMagnitude.X = 1; } _playerPosition.X += _playerMagnitude.X * _playerSpeed; we will then set our positions X by adding the previous X value + the magnitude * by the speed. So if magnitude is -1 when holding left we will move the player -1 * 6.0f = -6.0f so we take the previous X 200 and add -6.0 so we will move to 194 and positive value for right. Running the game now we should now be able to move left and right with our player pressing A \u0026 D!\nConclusion If you made it to here CONGRATS! this was a lengthy Part but we made lots of progress! we can now move the player! woohoo!\nThe next part we will be preparing to adding more movement to our player for falling down with gravity and also flipping the character depending on the direction we press!\nCommon errors If your character is not moving when pressing the keys make sure you are calling initialize and update functions. I highly suggest looking through this part a second time to make sure you didnt miss any small details\nIf you still have any trouble please post in the Github Disscusion or message me privately on discord! tag: ellie.x3\nComplete source code\n",
+  "wordCount" : "2127",
+  "inLanguage": "en",
+  "datePublished": "2024-04-08T19:30:50-03:00",
+  "dateModified": "2024-04-08T19:30:50-03:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://elliemakesgames.net/posts/pixelplatformer3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ellies Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://elliemakesgames.net/favicon.ico"
+    }
+  }
+}
+</script>
 </head>
 
 <body class="" id="top">
@@ -74,7 +136,7 @@ I will start picking up the pace of explaining the code as we will soon be divin
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
+            <a href="http://elliemakesgames.net/" accesskey="h" title="Ellies Blog (Alt + H)">Ellies Blog</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -100,7 +162,7 @@ I will start picking up the pace of explaining the code as we will soon be divin
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/tags/" title="Tags">
+                <a href="http://elliemakesgames.net/tags/" title="Tags">
                     <span>Tags</span>
                 </a>
             </li>
@@ -111,7 +173,7 @@ I will start picking up the pace of explaining the code as we will soon be divin
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://elliemakesgames.net/">Home</a>&nbsp;»&nbsp;<a href="http://elliemakesgames.net/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       Pixel Platformer Part 3
     </h1>
@@ -418,15 +480,15 @@ I highly suggest looking through this part a second time to make sure you didnt 
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/monogame/">MonoGame</a></li>
-      <li><a href="http://localhost:1313/tags/pixelplatformer/">PixelPlatformer</a></li>
+      <li><a href="http://elliemakesgames.net/tags/monogame/">MonoGame</a></li>
+      <li><a href="http://elliemakesgames.net/tags/pixelplatformer/">PixelPlatformer</a></li>
     </ul>
   </footer>
 </article>
     </main>
     
 <footer class="footer">
-    <span>&copy; 2024 <a href="http://localhost:1313/">Ellies Blog</a></span>
+    <span>&copy; 2024 <a href="http://elliemakesgames.net/">Ellies Blog</a></span>
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
